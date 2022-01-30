@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singin</title>
+    <link rel="stylesheet" href="singin.css">
+</head>
+<body>
+    <div id="main">
+    <form onsubmit="submitOn(event)">
+        <input type="text" placeholder="Name" id="name" required>
+        <br>
+        <input type="email" placeholder="Email" id="email" required>
+        <br>
+        <input type="text" placeholder="User Name" id="user" required>
+        <br>
+        <input type="password" placeholder="Password" id="pass" required>
+        <br>
+        <input type="number" placeholder="Number" id="num" required>
+        <br>
+        <input type="text" placeholder="description" id="des" required>
+        <br>
+        <input type="submit" id="butt">
+    </form>
+    <a href="login.html">Login Page</a>
+    
+    </div>
+</body>
+</html>
+
+
+<script>
+    async function submitOn(event){
+         event.preventDefault();
+        let userData={
+            name:document.querySelector("#name").value,
+            email:document.querySelector("#email").value,
+            username:document.querySelector("#user").value,
+            password:document.querySelector("#pass").value,
+            mobile:document.querySelector("#num").value,
+            description:document.querySelector("#des").value,
+        }
+
+        userData=JSON.stringify(userData);
+        console.log(userData);
+
+        try{
+
+            let url='https://masai-api-mocker.herokuapp.com/auth/register'
+
+            let response= await fetch(url,{
+               
+                method:'POST',
+
+                body:userData,
+
+                headers:{
+                    "Content-Type":"application/json",
+                },
+         });
+
+         let data= await response.json();
+         console.log(data);
+
+        }
+        catch(er){
+            console.log("singin side",er)
+        }
+    }
+
+
+</script>
+
+
+

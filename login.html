@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="singin.css">
+</head>
+<body>
+   
+   <div id="main">
+     <form onsubmit="loginOn(event)">
+         <input type="text" placeholder="User Name" id="name">
+         <br>
+         <input type="password" placeholder="Password" id="user">
+         <br>
+         <input type="submit" id="butt">
+     </form>
+     <a href="singin.html">Singin Page</a>
+     <br>
+    <a href="search.html">Home Page</a>
+   </div>
+   
+</body>
+</html>
+
+<script>
+
+    let arr=[];
+   
+   async function loginOn(event){
+       event.preventDefault();
+       let loginData={
+        password:document.querySelector("#user").value,
+        username:document.querySelector("#name").value,
+       }
+
+       loginData=JSON.stringify(loginData);
+
+       console.log(loginData)
+       
+       try{
+            let url='https://masai-api-mocker.herokuapp.com/auth/login'
+            let response= await fetch(url,{
+                method:"POST",
+                
+                body:loginData,
+
+                headers:{
+                    "Content-Type":"application/json",
+                }
+
+            });
+            let data=await response.json();
+            console.log(data);
+            let username=document.querySelector("#name").value
+            getUser(username,data.token)
+           
+       }
+       catch(er){
+           console.log("login side",er)
+       }
+   }
+
+
+   async function getUser(username,token){
+
+    try{
+       let api=`https://masai-api-mocker.herokuapp.com/user/${username}`;
+
+       let response1= await fetch(api,{
+            
+            headers:{
+                "Content-Type":"application/json",
+                 Authorization:`Bearer ${token}`,
+            },
+
+            
+       });
+       
+       let data1=  await response1.json();
+       console.log(data1.name);
+       arr.push(data1.name);
+       localStorage.setItem("NameData",JSON.stringify(arr));
+      
+        window.location.href="search.html"
+      
+       
+
+
+    }
+
+    catch (er){
+        console.log("getUser Name side",er);
+    }
+   }
+
+
+</script>
+
+
+

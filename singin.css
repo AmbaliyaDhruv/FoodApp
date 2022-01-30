@@ -1,0 +1,39 @@
+#main{
+    
+    width:30%;
+    margin: auto;
+    margin-top: 90px;
+}
+
+input{
+    margin-top: 10px;
+    margin-left:22%;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 30px;
+}
+
+#butt{
+
+    background: none;
+
+    font-weight: 700;
+}
+
+#butt:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+
+a{
+    margin-left: 22%;
+    margin-top: 20px;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
