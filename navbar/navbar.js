@@ -2,7 +2,7 @@ function navbar(){
 
     return `<div class="navbar">
 
-   <a href="search.html"><img  class="imgLogo"src="https://t4.ftcdn.net/jpg/02/05/35/83/240_F_205358373_KWHghj12tHHbyLNfwI1hcuO5wY7fCw1N.jpg"
+   <a href="index.html"><img  class="imgLogo"src="https://t4.ftcdn.net/jpg/02/05/35/83/240_F_205358373_KWHghj12tHHbyLNfwI1hcuO5wY7fCw1N.jpg"
         alt="IMDb logo" height="59px" width="5%"></a> 
 
     <div class="mainbox">
