@@ -1,0 +1,10 @@
+#cont{
+    display: flex;
+}
+.imgbox{
+    display:1;
+}
+.des{
+    text-align: center;
+    line-height: 20px;
+}

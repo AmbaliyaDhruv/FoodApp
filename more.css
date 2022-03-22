@@ -1,0 +1,20 @@
+#cont{
+    display: flex;
+}
+.imgbox{
+    display:1;
+}
+.des{
+    text-align: center;
+    line-height: 20px;
+}
+a{
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    color: black;
+}
+a:hover{
+
+    color: tomato;
+}
